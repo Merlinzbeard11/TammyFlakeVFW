@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tammy Flake for VFW Commander in Chief</title>
+  <meta name="description" content="Tammy Flake - Army Veteran running for VFW National Commander in Chief. Connection over isolation. Listening over talking. Family-centered VFW.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --olive: #3d4f2f;
+      --olive-dark: #2a3820;
+      --navy: #1b2a4a;
+      --navy-light: #263d6a;
+      --gold: #c8a84e;
+      --gold-light: #e6c95a;
+      --sand: #f5f0e8;
+      --sand-dark: #e8dfd2;
+      --white: #ffffff;
+      --charcoal: #2c2c2c;
+      --red-accent: #8b1a1a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+      color: var(--charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(27, 42, 74, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0 2rem;
+      transition: all 0.3s ease;
+    }
+    nav.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .nav-logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--gold);
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(27, 42, 74, 0.92) 0%, rgba(61, 79, 47, 0.88) 50%, rgba(27, 42, 74, 0.92) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="rgba(200,168,78,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(200, 168, 78, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(200, 168, 78, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      animation: fadeUp 1s ease-out;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.5rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 .accent { color: var(--gold); }
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    .hero-service {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+    .hero-quote {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      position: relative;
+      padding: 0 2rem;
+    }
+    .hero-quote::before,
+    .hero-quote::after {
+      font-size: 3rem;
+      color: var(--gold);
+      font-style: normal;
+      line-height: 0;
+      position: absolute;
+    }
+    .hero-quote::before { content: '\201C'; top: 0.3rem; left: -0.5rem; }
+    .hero-quote::after { content: '\201D'; bottom: -0.8rem; right: -0.5rem; }
+    .hero-cta {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 1rem 3rem;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .hero-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(200, 168, 78, 0.3);
+    }
+
+    /* DIVIDER */
+    .section-divider {
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy), var(--gold), var(--olive), var(--gold), var(--navy));
+    }
+
+    /* ABOUT */
+    .about {
+      padding: 6rem 2rem;
+      background: var(--sand);
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      line-height: 1.1;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+    .about-text strong { color: var(--navy); }
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .highlight-card {
+      background: var(--white);
+      padding: 1.5rem 2rem;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+    }
+    .highlight-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .highlight-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* VISION */
+    .vision {
+      padding: 6rem 2rem;
+      background: var(--navy);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .vision::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 10% 90%, rgba(200,168,78,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 10%, rgba(61,79,47,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .vision .container { position: relative; z-index: 2; }
+    .vision .section-label { color: var(--gold); }
+    .vision .section-title { color: var(--white); }
+    .vision-intro {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(200,168,78,0.2);
+      padding: 2.5rem 2rem;
+      transition: all 0.3s;
+    }
+    .pillar:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+    .pillar-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .pillar h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .pillar p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+    }
+
+    /* QUOTE BANNER */
+    .quote-banner {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--olive-dark), var(--olive));
+      text-align: center;
+      position: relative;
+    }
+    .quote-banner blockquote {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.8rem);
+      font-weight: 500;
+      color: var(--white);
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.3;
+    }
+    .quote-banner blockquote .gold { color: var(--gold-light); }
+    .quote-banner cite {
+      display: block;
+      margin-top: 1.5rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      font-style: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* WHY NOW */
+    .why-now {
+      padding: 6rem 2rem;
+      background: var(--sand);
+    }
+    .why-now .section-title { margin-bottom: 1rem; }
+    .why-now-intro {
+      font-size: 1.15rem;
+      color: #555;
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+    .reasons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .reason {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--gold);
+      position: relative;
+    }
+    .reason-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(200,168,78,0.15);
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      line-height: 1;
+    }
+    .reason h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .reason p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* CONNECTION SECTION */
+    .connection {
+      padding: 6rem 2rem;
+      background: var(--white);
+    }
+    .connection-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .connection-text .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    .connection-text p {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    .connection-visual {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+    }
+    .connection-visual::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(200,168,78,0.3);
+      pointer-events: none;
+    }
+    .connection-visual .big-quote {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    .connection-visual .attribution {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+    }
+    .values-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+    .values-list li {
+      padding: 0.6rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 1.05rem;
+      color: #444;
+    }
+    .values-list li::before {
+      content: '\2726';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    /* CTA / CONTACT */
+    .cta {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--olive-dark) 100%);
+      text-align: center;
+      color: var(--white);
+    }
+    .cta .section-title { color: var(--white); margin-bottom: 1rem; }
+    .cta-subtitle {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .cta-qr {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    .cta-qr img {
+      width: 100%;
+      max-width: 280px;
+      display: block;
+      margin: 0 auto;
+    }
+    .cta-qr p {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--navy);
+      margin-top: 1rem;
+    }
+    .cta-contact {
+      text-align: left;
+    }
+    .cta-contact h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(200,168,78,0.15);
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .contact-item a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .contact-item a:hover { color: var(--gold); }
+    .contact-item .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.2rem;
+    }
+    .cta-message {
+      margin-top: 2rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    footer .footer-name {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* SCROLL ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .about-grid,
+      .connection-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .pillars,
+      .reasons {
+        grid-template-columns: 1fr;
+      }
+      .cta-contact { text-align: center; }
+      .contact-item { justify-content: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(27, 42, 74, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        text-align: center;
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .hero { padding-top: 70px; }
+      .about, .vision, .why-now, .connection, .cta {
+        padding: 4rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Tammy Flake</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#why-now">Why Now</a></li>
+        <li><a href="#connection">Our Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">VFW National Commander in Chief</div>
+      <h1>Tammy <span class="accent">Flake</span></h1>
+      <p class="hero-subtitle">It's Time to Listen. It's Time to Connect.</p>
+      <p class="hero-service">U.S. Army Veteran &bull; 3-101st Airborne &bull; Iraq</p>
+      <p class="hero-quote">The opposite of addiction is not sobriety. The opposite of addiction is connection.</p>
+      <a href="#contact" class="hero-cta">Join the Movement</a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <p class="section-label">Who I Am</p>
+          <h2 class="section-title">Army Veteran. VFW Member. Your Voice.</h2>
+          <p>My name is <strong>Tammy Flake</strong>. I'm an Army veteran who deployed to Iraq with the <strong>3-101st Airborne Division Apache helicopter unit</strong> as a Unit Supply Specialist. I know what it means to serve, to sacrifice, and to come home carrying things that are hard to talk about.</p>
+          <p>I'm running for <strong>National Commander in Chief</strong> because I believe the VFW has drifted from its true mission. We've let internal politics overshadow what matters most: <strong>veterans helping veterans</strong>. It's time to leave the politics to the politicians and get back to being a member-led organization where <strong>every member has a place</strong>.</p>
+          <p>I'm not running to be the person with all the answers. I'm running to have a seat at the table surrounded by good people who will say, <strong>"We're off course just a little bit, and we need to get back on track."</strong></p>
+        </div>
+        <div class="about-highlights fade-in">
+          <div class="highlight-card">
+            <h4>Boots on the Ground</h4>
+            <p>Grassroots leadership. Building from the front, not directing from the top. I'll be doing it with you, not telling you to do it.</p>
+          </div>
+          <div class="highlight-card">
+            <h4>Standing in Truth</h4>
+            <p>Honest leadership means having hard conversations about veteran suicide, addiction, and the barriers that keep families away from the VFW.</p>
+          </div>
+          <div class="highlight-card">
+            <h4>All Members Welcome</h4>
+            <p>No more "good old boys club." Every veteran who served overseas earned their place. Every member's voice matters.</p>
+          </div>
+          <div class="highlight-card">
+            <h4>Service is Urgent</h4>
+            <p>Military people know tomorrow is not promised. I have something to offer, and the time to serve is now.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="vision" id="vision">
+    <div class="container">
+      <p class="section-label fade-in">The Vision</p>
+      <h2 class="section-title fade-in">Bottom-Up Listening.<br>Not Top-Down Talking.</h2>
+      <p class="vision-intro fade-in">The VFW's mission is powerful: camaraderie, service, and advocacy. But we've lost our way when we focus on how the outside world sees us instead of how we see each other. Only veterans understand veterans. That understanding should lead.</p>
+      <div class="pillars">
+        <div class="pillar fade-in">
+          <div class="pillar-icon">&#9825;</div>
+          <h3>Family-Centered VFW</h3>
+          <p>Today's veterans need their families at meetings, not bars. We need spaces for healing, not habits. Families should feel welcome, not excluded. When we strengthen families, we strengthen veterans.</p>
+        </div>
+        <div class="pillar fade-in">
+          <div class="pillar-icon">&#9878;</div>
+          <h3>Alternative Healing</h3>
+          <p>Meditation. Scuba diving. Hiking. Many veterans are seeking better ways to heal from PTSD and moral injury. We should be leading the way toward these alternatives, not holding onto old patterns.</p>
+        </div>
+        <div class="pillar fade-in">
+          <div class="pillar-icon">&#9733;</div>
+          <h3>Recruitment &amp; Retention</h3>
+          <p>Veterans leaving the military today juggle disability pay with extra jobs to make ends meet. If we want them in the VFW, we need to meet them where they are and offer real value for their families.</p>
+        </div>
+        <div class="pillar fade-in">
+          <div class="pillar-icon">&#9876;</div>
+          <h3>Upholding the Contract</h3>
+          <p>We signed a contract with our country. Congress must honor theirs. The VFW's reputation as an advocate in DC for veteran benefits must remain strong and unwavering.</p>
+        </div>
+        <div class="pillar fade-in">
+          <div class="pillar-icon">&#9874;</div>
+          <h3>Grassroots Change</h3>
+          <p>Real change starts at the post level. Setting the foundation properly, building from the ground up. Not directives from on high, but solutions born from the people doing the work.</p>
+        </div>
+        <div class="pillar fade-in">
+          <div class="pillar-icon">&#10084;</div>
+          <h3>Veteran Suicide Awareness</h3>
+          <p>Suicide is running rampant among veterans. We need to talk about the things that are hard to talk about. Connection, not isolation. Love, not judgment. Bonding, not bureaucracy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE BANNER -->
+  <div class="quote-banner">
+    <blockquote class="fade-in">
+      Don't ask someone to take a chance on <span class="gold">you</span>.<br>
+      Ask them to take a chance on the <span class="gold">new vision</span><br>
+      and on <span class="gold">each other</span>.
+    </blockquote>
+    <cite class="fade-in">Tammy Flake</cite>
+  </div>
+
+  <!-- WHY NOW -->
+  <section class="why-now" id="why-now">
+    <div class="container">
+      <p class="section-label fade-in">Why Now</p>
+      <h2 class="section-title fade-in">The Time for Change Is Today</h2>
+      <p class="why-now-intro fade-in">People want change but won't stand up. I will. Here's why this can't wait.</p>
+      <div class="reasons">
+        <div class="reason fade-in">
+          <span class="reason-number">01</span>
+          <h3>Not Run of the Mill</h3>
+          <p>The VFW needs someone who will stand up to the system when it becomes blind to its own problems. Someone connected, knowledgeable, and unafraid to push back with love and truth. People need change but won't stand up &mdash; I will.</p>
+        </div>
+        <div class="reason fade-in">
+          <span class="reason-number">02</span>
+          <h3>Grassroots Now</h3>
+          <p>Big impacts start at the front. I'm going to be doing it alongside you &mdash; boots on the ground, setting the foundation properly. Changing thoughts and actions from the post level up. This is how we fix recruitment and retention for good.</p>
+        </div>
+        <div class="reason fade-in">
+          <span class="reason-number">03</span>
+          <h3>Tomorrow Isn't Promised</h3>
+          <p>Military people understand urgency. I know I have something to offer, and I want to serve now. I will work harder than anyone, and I will make the people who voted for me proud. The VFW will miss out if we don't act today.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECTION PHILOSOPHY -->
+  <section class="connection" id="connection">
+    <div class="container">
+      <div class="connection-grid">
+        <div class="connection-text fade-in">
+          <p class="section-label">Our Approach</p>
+          <h2 class="section-title">Connection Over Isolation</h2>
+          <p>Research shows that what people struggling with addiction need most isn't punishment or programs &mdash; it's <strong>someone who loves them</strong>. Human beings bond. When we're healthy, we bond with people. When we're hurting, we bond with whatever gives us relief.</p>
+          <p>The VFW should be the place where veterans find that bond. Not through outdated systems, but through genuine connection, understanding, and love.</p>
+          <p><strong>We're gonna start listening.</strong> The old way was top-down talking. The new way is bottom-up listening. When veterans rediscover purpose and connection, they rediscover themselves.</p>
+          <ul class="values-list">
+            <li>Listening before leading</li>
+            <li>Connection before correction</li>
+            <li>Families before formalities</li>
+            <li>Healing before habit</li>
+            <li>Bonding before bureaucracy</li>
+          </ul>
+        </div>
+        <div class="connection-visual fade-in">
+          <div class="big-quote">The Opposite of Addiction Is Connection</div>
+          <p class="attribution">&mdash; Johann Hari</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND QUOTE BANNER -->
+  <div class="quote-banner" style="background: linear-gradient(135deg, var(--navy), var(--navy-light));">
+    <blockquote class="fade-in">
+      There are times in life when you need to <span class="gold">push back</span>.<br>
+      Not because you think you know better, but because<br>
+      the system itself has become <span class="gold">colorblind</span>.
+    </blockquote>
+    <cite class="fade-in">Tammy Flake</cite>
+  </div>
+
+  <!-- CTA / CONTACT -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <p class="section-label fade-in">Take Action</p>
+      <h2 class="section-title fade-in">Help Shape the Future of the VFW</h2>
+      <p class="cta-subtitle fade-in">Share your thoughts. Raise your voice. Take a chance on a new vision and on each other.</p>
+      <div class="cta-grid fade-in">
+        <div class="cta-qr">
+          <img src="assets/qr-code.jpg" alt="QR Code - Share your thoughts on the future of the VFW" loading="lazy">
+          <p>Scan to Share Your Voice</p>
+        </div>
+        <div class="cta-contact">
+          <h3>Reach Out Directly</h3>
+          <div class="contact-item">
+            <div class="contact-icon">&#9742;</div>
+            <div>
+              <p class="label">Call or Text</p>
+              <a href="tel:9315516484">(931) 551-6484</a>
+            </div>
+          </div>
+          <p class="cta-message">"I love you whether you're using or you're not. If you need me, I'll come and sit with you because I love you and I don't want you to be alone."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><span class="footer-name">Tammy Flake</span> &bull; For VFW National Commander in Chief &bull; Veterans Helping Veterans</p>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Scroll-triggered fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
