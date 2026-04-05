@@ -252,11 +252,12 @@
       margin-bottom: 2rem;
       line-height: 1.1;
     }
-    .about-grid {
+    .about-top {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
-      align-items: start;
+      align-items: center;
+      margin-bottom: 3rem;
     }
     .about-text p {
       font-size: 1.1rem;
@@ -264,9 +265,30 @@
       color: #444;
     }
     .about-text strong { color: var(--navy); }
+    .about-photo-wrapper {
+      text-align: center;
+    }
+    .about-photo {
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      border: 4px solid var(--white);
+      outline: 2px solid var(--gold);
+      display: block;
+      margin: 0 auto;
+    }
+    .photo-caption {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-align: center;
+      margin-top: 0.75rem;
+    }
     .about-highlights {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
     }
     .highlight-card {
@@ -286,31 +308,6 @@
     .highlight-card p {
       font-size: 0.95rem;
       color: #555;
-    }
-
-    /* ABOUT PHOTOS */
-    .about-photo {
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-      border: 4px solid var(--white);
-      outline: 2px solid var(--gold);
-      display: block;
-    }
-    .about-photos {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-    }
-    .photo-caption {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--gold);
-      text-align: center;
-      margin-top: 0.5rem;
     }
 
     /* VISION */
@@ -639,11 +636,14 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      .about-grid,
+      .about-top,
       .connection-grid,
       .cta-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+      }
+      .about-highlights {
+        grid-template-columns: 1fr;
       }
       .pillars,
       .reasons {
@@ -713,42 +713,35 @@
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="container">
-      <div class="about-grid">
+      <div class="about-top">
         <div class="about-text fade-in">
           <p class="section-label">Who I Am</p>
           <h2 class="section-title">Army Veteran. VFW Member. Your Voice.</h2>
           <p><strong>Tammy Flake</strong> served in the United States Army from February 2004 to December 2008 as a <strong>unit supply specialist and arms room specialist</strong>. Stationed at Ft. Campbell, Kentucky, she worked with the <strong>3-101 Aviation Unit Apache Helicopters</strong>, became <strong>air assault qualified</strong>, and deployed to Iraq from 2005 to 2006, supporting critical operations at LSA Anaconda.</p>
           <p>Family is at the heart of Tammy's life. She is married to her best friend, <strong>James</strong>, and together they have five children: <strong>Ridge, Coal, Steel, Valley, and Brook</strong>. They run a successful government contracting business, and Tammy contributes to her community through Americans for Prosperity in Utah.</p>
-          <p>Tammy currently serves as <strong>VFW Post Commander</strong> and <strong>Utah VFW State Surgeon</strong>. She is passionate about combating veteran suicide through her work with <strong>Heroes Haven</strong> and is a member of the American Legion. She's running for <strong>National Commander in Chief</strong> because the VFW has drifted from its mission. It's time to leave the politics to the politicians and get back to being a member-led organization where <strong>every member has a place</strong>.</p>
-          <p>She's not running to be the person with all the answers. She's running to have a seat at the table surrounded by good people who will say, <strong>"We're off course just a little bit, and we need to get back on track."</strong></p>
+          <p>Tammy currently serves as <strong>VFW Post Commander</strong> and <strong>Utah VFW State Surgeon</strong>. She is passionate about combating veteran suicide through her work with <strong>Heroes Haven</strong> and is a member of the American Legion.</p>
         </div>
-        <div class="about-highlights fade-in">
-          <div class="about-photos">
-            <div>
-              <img src="assets/tammy-heroes-haven.jpg" alt="Tammy Flake wearing VFW cap and Heroes Haven shirt" class="about-photo">
-              <p class="photo-caption">VFW Post Commander &bull; Heroes Haven</p>
-            </div>
-            <div>
-              <img src="assets/tammy-military.jpg" alt="Tammy Flake in military uniform during deployment to Iraq" class="about-photo">
-              <p class="photo-caption">Iraq Deployment &bull; 3-101 Aviation</p>
-            </div>
-          </div>
-          <div class="highlight-card">
-            <h4>Boots on the Ground</h4>
-            <p>Grassroots leadership. Building from the front, not directing from the top. I'll be doing it with you, not telling you to do it.</p>
-          </div>
-          <div class="highlight-card">
-            <h4>Standing in Truth</h4>
-            <p>Honest leadership means having hard conversations about veteran suicide, addiction, and the barriers that keep families away from the VFW.</p>
-          </div>
-          <div class="highlight-card">
-            <h4>All Members Welcome</h4>
-            <p>No more "good old boys club." Every veteran who served overseas earned their place. Every member's voice matters.</p>
-          </div>
-          <div class="highlight-card">
-            <h4>Service is Urgent</h4>
-            <p>Military people know tomorrow is not promised. I have something to offer, and the time to serve is now.</p>
-          </div>
+        <div class="about-photo-wrapper fade-in">
+          <img src="assets/tammy-heroes-haven.jpg" alt="Tammy Flake wearing VFW cap and Heroes Haven shirt" class="about-photo">
+          <p class="photo-caption">VFW Post Commander &bull; Heroes Haven</p>
+        </div>
+      </div>
+      <div class="about-highlights fade-in">
+        <div class="highlight-card">
+          <h4>Boots on the Ground</h4>
+          <p>Grassroots leadership. Building from the front, not directing from the top. I'll be doing it with you, not telling you to do it.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Standing in Truth</h4>
+          <p>Honest leadership means having hard conversations about veteran suicide, addiction, and the barriers that keep families away from the VFW.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>All Members Welcome</h4>
+          <p>No more "good old boys club." Every veteran who served overseas earned their place. Every member's voice matters.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Service is Urgent</h4>
+          <p>Military people know tomorrow is not promised. I have something to offer, and the time to serve is now.</p>
         </div>
       </div>
     </div>
