@@ -288,6 +288,31 @@
       color: #555;
     }
 
+    /* ABOUT PHOTOS */
+    .about-photo {
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      border: 4px solid var(--white);
+      outline: 2px solid var(--gold);
+      display: block;
+    }
+    .about-photos {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+    .photo-caption {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
     /* VISION */
     .vision {
       padding: 6rem 2rem;
@@ -698,6 +723,16 @@
           <p>She's not running to be the person with all the answers. She's running to have a seat at the table surrounded by good people who will say, <strong>"We're off course just a little bit, and we need to get back on track."</strong></p>
         </div>
         <div class="about-highlights fade-in">
+          <div class="about-photos">
+            <div>
+              <img src="assets/tammy-heroes-haven.jpg" alt="Tammy Flake wearing VFW cap and Heroes Haven shirt" class="about-photo">
+              <p class="photo-caption">VFW Post Commander &bull; Heroes Haven</p>
+            </div>
+            <div>
+              <img src="assets/tammy-military.jpg" alt="Tammy Flake in military uniform during deployment to Iraq" class="about-photo">
+              <p class="photo-caption">Iraq Deployment &bull; 3-101 Aviation</p>
+            </div>
+          </div>
           <div class="highlight-card">
             <h4>Boots on the Ground</h4>
             <p>Grassroots leadership. Building from the front, not directing from the top. I'll be doing it with you, not telling you to do it.</p>
