@@ -623,6 +623,62 @@
       font-weight: 600;
     }
 
+    /* PHOTO GALLERY */
+    .gallery {
+      padding: 5rem 2rem;
+      background: var(--navy);
+    }
+    .gallery .section-title { color: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-item .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: var(--white);
+      padding: 2rem 1rem 0.75rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-item .gallery-caption {
+        opacity: 1;
+        font-size: 0.65rem;
+        padding: 1.5rem 0.5rem 0.5rem;
+      }
+    }
+
     /* SCROLL ANIMATIONS */
     .fade-in {
       opacity: 0;
@@ -754,6 +810,40 @@
       <h2 class="section-title" style="margin-bottom:1.5rem;">The Flake Family</h2>
       <img src="assets/tammy-family.jpg" alt="The Flake Family - Tammy, James, Ridge, Coal, Steel, Valley, and Brook" style="width:100%; max-width:700px; box-shadow:0 8px 30px rgba(0,0,0,0.12); border:4px solid var(--white); outline:2px solid var(--gold);">
       <p style="font-family:'Oswald',sans-serif; font-size:0.8rem; text-transform:uppercase; letter-spacing:2px; color:var(--gold); margin-top:0.75rem;">Tammy &bull; James &bull; Ridge &bull; Coal &bull; Steel &bull; Valley &bull; Brook</p>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="gallery">
+    <div class="container">
+      <p class="section-label fade-in" style="color:var(--gold);">Service &amp; Sacrifice</p>
+      <h2 class="section-title fade-in" style="margin-bottom:2rem;">From Boots on the Ground to Leading the Way</h2>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-item">
+          <img src="assets/service-graduation.jpg" alt="Tammy at Army graduation in Class A uniform" loading="lazy">
+          <div class="gallery-caption">Army Graduation</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/deploy-apache-ceremony.jpg" alt="Award ceremony in front of Apache helicopter" loading="lazy">
+          <div class="gallery-caption">Apache Unit &bull; Award Ceremony</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/deploy-101st-eagle.jpg" alt="Tammy with fellow soldier at 101st Airborne" loading="lazy">
+          <div class="gallery-caption">101st Airborne &bull; Iraq</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/deploy-formation.jpg" alt="Tammy in formation during deployment" loading="lazy">
+          <div class="gallery-caption">On Duty &bull; Iraq</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/deploy-apache-crew.jpg" alt="Tammy with crew by Apache helicopter" loading="lazy">
+          <div class="gallery-caption">Apache Crew &bull; LSA Anaconda</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/deploy-field-hospital.jpg" alt="Tammy visiting soldier in field hospital" loading="lazy">
+          <div class="gallery-caption">Veterans Caring for Veterans</div>
+        </div>
+      </div>
     </div>
   </section>
 
