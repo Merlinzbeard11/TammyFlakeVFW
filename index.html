@@ -149,12 +149,14 @@
     .hero-badge {
       display: inline-block;
       font-family: 'Oswald', sans-serif;
-      font-size: 0.85rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 600;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 0.5rem 1.5rem;
+      color: var(--white);
+      background: rgba(200, 168, 78, 0.2);
+      border: 2px solid var(--gold);
+      padding: 0.75rem 2rem;
       margin-bottom: 2rem;
     }
     .hero h1 {
@@ -755,7 +757,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">VFW National Commander in Chief</div>
+      <div class="hero-badge">For VFW National Commander in Chief</div>
       <h1>Tammy <span class="accent">Flake</span></h1>
       <p class="hero-subtitle">It's Time to Listen. It's Time to Connect.</p>
       <p class="hero-service">U.S. Army Veteran &bull; 3-101 Aviation &bull; Air Assault &bull; Iraq 2005-2006</p>
