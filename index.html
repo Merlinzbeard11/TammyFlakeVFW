@@ -216,6 +216,38 @@
       box-shadow: 0 8px 25px rgba(200, 168, 78, 0.3);
     }
 
+    /* VIDEO SECTION */
+    .video-hero {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, rgba(27, 42, 74, 0.97), rgba(42, 56, 32, 0.97));
+      text-align: center;
+    }
+    .video-hero .container {
+      max-width: 500px;
+    }
+    .video-hero .section-label {
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .video-hero .section-title {
+      color: var(--white);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: 2rem;
+    }
+    .video-wrapper {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      border: 3px solid var(--gold);
+      background: #000;
+    }
+    .video-wrapper video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     /* DIVIDER */
     .section-divider {
       height: 4px;
@@ -757,6 +789,20 @@
       <p class="hero-service">U.S. Army Veteran &bull; 3-101 Aviation &bull; Air Assault &bull; Iraq 2005-2006</p>
       <p class="hero-quote">&ldquo;The opposite of addiction is not sobriety.<br>The opposite of addiction is connection.&rdquo;</p>
       <a href="#contact" class="hero-cta">Join the Movement</a>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="video-hero">
+    <div class="container fade-in">
+      <p class="section-label">Hear From Tammy</p>
+      <h2 class="section-title">In Her Own Words</h2>
+      <div class="video-wrapper">
+        <video controls playsinline preload="metadata" poster="">
+          <source src="assets/tammy-intro.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
   </section>
 
